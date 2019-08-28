@@ -9,12 +9,19 @@
 -export([main/0]).
 
 main() ->
-	do_math(5,4).
+	what_grade(10).
 
-do_math(A,B) ->
-	math:exp(1),
-	math:log(2.718281828459045),
-	math:pow(10,2),
-	math:sqrt(49),
-	math:cos(3.141592653589793),
-	random:uniform(10).
+preschool() -> 
+	"Go to ps".
+
+kindergarten() -> 
+	"Go to kg".
+
+grade_school() -> 
+	"Go to gs".
+
+what_grade(x) -> 
+	if x < 5 -> preschool()
+	; x == 5 -> kindergarten()
+	; x > 5 -> grade_school()
+	end.
