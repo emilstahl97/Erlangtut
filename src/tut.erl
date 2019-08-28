@@ -9,8 +9,9 @@
 -export([main/0]).
 
 main() ->
-	var_stuff().
+	do_math(5,4).
 
-var_stuff() ->
-	Num = 1,
-	Num.
+do_math(A,B) ->
+	A + B,
+	A / B,
+	A * B.
