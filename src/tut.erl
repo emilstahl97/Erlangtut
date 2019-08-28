@@ -12,6 +12,9 @@ main() ->
 	do_math(5,4).
 
 do_math(A,B) ->
-	A + B,
-	A / B,
-	A * B.
+	math:exp(1),
+	math:log(2.718281828459045),
+	math:pow(10,2),
+	math:sqrt(49),
+	math:cos(3.141592653589793),
+	random:uniform(10).
