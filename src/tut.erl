@@ -9,24 +9,18 @@
 -export([main/0]).
 
 main() ->
-	list_stuff().
+	lc_stuff().
 
-list_stuff() ->
+lc_stuff() ->
 	
 	List1 = [1,2,3],
-	List2 = [4,5,6],
-
-	List3 = List1 ++ List2,
-	List3,
-
-	List4 = List1 -- List2,
+	List2 = [2*N || N <- List1],
+	List2,
+	
+	List3 = [1,2,3,4],
+	List4 = [N || N <- List3, N rem 2  == 0],
 	List4,
 	
-	hd(List4),
-	tl(List4),
-
-	List5 = [3|List2],
-	List5,
-	
-	[Head|Tail] = List5, 
-	Head.
+	City_weather = [{"Pittsburgh", 50}, {"New York", 53}, {"Charlotte", 68}, {"Miami", 78}],
+	Great_Temp = [{City, Temp} || {City, Temp} <- City_weather, Temp >= 65],
+	Great_Temp.
