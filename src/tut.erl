@@ -9,19 +9,11 @@
 -export([main/0]).
 
 main() ->
-	what_grade(10).
+	say_hello(english).
 
-preschool() -> 
-	"Go to ps".
-
-kindergarten() -> 
-	"Go to kg".
-
-grade_school() -> 
-	"Go to gs".
-
-what_grade(x) -> 
-	if x < 5 -> preschool()
-	; x == 5 -> kindergarten()
-	; x > 5 -> grade_school()
-	end.
+say_hello(X) ->
+	case X of 
+		german -> 'guten tag';
+		french -> "bonjour";
+		english -> "hello"
+end.
