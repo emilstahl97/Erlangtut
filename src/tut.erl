@@ -9,26 +9,24 @@
 -export([main/0]).
 
 main() ->
-	string_stuff().
+	list_stuff().
 
-string_stuff() -> 
-	Str1 = "Random string",
-	Str2 = "Another string",
+list_stuff() ->
 	
-	io:fwrite("String : ~p ~p\n", [Str1, Str2] ),
+	List1 = [1,2,3],
+	List2 = [4,5,6],
 
-	Str3 = io_lib:format("It's a ~s and ~s\n", [Str1, Str2]),
-	io:fwrite(Str3),
-	
-	len(Str3),
+	List3 = List1 ++ List2,
+	List3,
 
-	Str4 = concat(Str1, Str2),
-	Str4,
+	List4 = List1 -- List2,
+	List4,
+	
+	hd(List4),
+	tl(List4),
 
-	Str5 = substr(Str4, 14,7),
-	Str5,
+	List5 = [3|List2],
+	List5,
 	
-	StrIndex = str(Str4, Str2),
-	StrIndex,
-	
-	to_upper(Str1).
+	[Head|Tail] = List5, 
+	Head.
