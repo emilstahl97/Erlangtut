@@ -9,25 +9,13 @@
 -export([main/0]).
 
 main() -> 
-	do_math2(),
-	fun_stuff("Emil"),
-	fun_stuff2().
-
-double(X) -> X * 2.
-triple(X) -> X * 3.
-
-
-do_math2() ->
-	lists:map(fun double/1, [1,2,3]),
-	lists:map(fun triple/1, [1,2,3]).
-
-fun_stuff(N) ->
-	Fun_stuff = fun() -> io:fwrite("Hello, ~p\n", [N]) end,
-	Fun_stuff().
-
-fun_stuff2() ->
-	A = 3,
-	B = 4,
-	C = fun() -> 
-		io:fwrite("Sum : ~p\n", [A+B]) end,
-	C().
+	error_stuff(0).
+	
+error_stuff(N) ->
+	try 
+		Ans = 2/N,
+		Ans
+	catch	
+		error:badarith ->	
+			"Can't divide by zero"
+end.
