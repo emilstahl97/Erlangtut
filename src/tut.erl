@@ -9,11 +9,11 @@
 -export([main/0]).
 
 main() -> 
-	for(3,1).
+	record_stuff().
 
-for(0, _) -> 
-	ok;
+-record(customer, {name = "", bal = 0.00}).
 
-for(Max, Min) when Max > 0 ->
-	io:fwrite("Num : ~p\n", [Max]),
-	for(Max-1, Min).
+record_stuff() -> 
+	Emil = #customer{name="Emil Stahl", bal = 100.00},
+
+	io:fwrite("~p paid $~p\n", [Emil#customer.name, Emil#customer.bal]).
