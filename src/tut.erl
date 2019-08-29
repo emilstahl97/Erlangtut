@@ -9,13 +9,9 @@
 -export([main/0]).
 
 main() -> 
-	error_stuff(0).
-	
-error_stuff(N) ->
-	try 
-		Ans = 2/N,
-		Ans
-	catch	
-		error:badarith ->	
-			"Can't divide by zero"
-end.
+	macro_stuff(5,6).
+
+-define(add(X,Y), {X+Y}).
+
+macro_stuff(X,Y) ->
+	io:fwrite("~p\n", [?add(X,Y)]).
