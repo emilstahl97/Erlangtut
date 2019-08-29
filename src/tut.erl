@@ -9,7 +9,10 @@
 -export([main/0]).
 
 main() -> 
-	sum([1,2,3,4,5]).
+	sum([1,2,3,4,5], 0).
 
-sum([]) -> 0;
-sum([H|T]) -> H + sum(T).
+sum([], Sum) -> Sum;
+
+sum([H|T], Sum) -> 
+	io:fwrite("Sum : ~p\n", [Sum]),
+	sum(T, H + Sum).
