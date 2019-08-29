@@ -9,10 +9,11 @@
 -export([main/0]).
 
 main() -> 
-	sum([1,2,3,4,5], 0).
+	for(3,1).
 
-sum([], Sum) -> io:fwrite("Sum : ~p\n", [Sum]);
+for(0, _) -> 
+	ok;
 
-sum([H|T], Sum) -> 
-	io:fwrite("Sum : ~p\n", [Sum]),
-	sum(T, H + Sum).
+for(Max, Min) when Max > 0 ->
+	io:fwrite("Num : ~p\n", [Max]),
+	for(Max-1, Min).
