@@ -9,11 +9,25 @@
 -export([main/0]).
 
 main() -> 
-	record_stuff().
+	do_math2(),
+	fun_stuff("Emil"),
+	fun_stuff2().
 
--record(customer, {name = "", bal = 0.00}).
+double(X) -> X * 2.
+triple(X) -> X * 3.
 
-record_stuff() -> 
-	Emil = #customer{name="Emil Stahl", bal = 100.00},
 
-	io:fwrite("~p paid $~p\n", [Emil#customer.name, Emil#customer.bal]).
+do_math2() ->
+	lists:map(fun double/1, [1,2,3]),
+	lists:map(fun triple/1, [1,2,3]).
+
+fun_stuff(N) ->
+	Fun_stuff = fun() -> io:fwrite("Hello, ~p\n", [N]) end,
+	Fun_stuff().
+
+fun_stuff2() ->
+	A = 3,
+	B = 4,
+	C = fun() -> 
+		io:fwrite("Sum : ~p\n", [A+B]) end,
+	C().
