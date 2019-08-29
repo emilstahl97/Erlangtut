@@ -11,7 +11,7 @@
 main() -> 
 	sum([1,2,3,4,5], 0).
 
-sum([], Sum) -> Sum;
+sum([], Sum) -> io:fwrite("Sum : ~p\n", [Sum]);
 
 sum([H|T], Sum) -> 
 	io:fwrite("Sum : ~p\n", [Sum]),
