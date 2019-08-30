@@ -10,15 +10,14 @@
 
 main() -> 
 
-	spawner(50,1),
-	spawner(100,51).
+	for_up(1,50).
 	
-for(0,_) -> 
-	ok;
+	
+for_up(Min, Max) ->
+	case Min of 
+		Max -> io:fwrite("Num : ~p\n", [Min]);
+  
+  	_ -> 
+	io:fwrite("Num : ~p\n", [Min]),
+	for_up(Min+1, Max) end.
 
-for(Max, Min) when Max > 0 -> 
-	io:fwrite("Num : ~p\n", [Max]),
-	for(Max-1, Min).
-
-spawner(Max, Min) -> 
-	spawn(fun() -> for(Max, Min) end).
