@@ -30,5 +30,8 @@ for_up(Min, Max) ->
 	for_up(Min+1, Max) end.
 
 spawner_up(Min, Max) ->
-	(fun() -> for_up(Max))
+	spawn(fun() -> for_up(Min,Max)end).
+
+spawner_down(Min, Max) ->
+	spawn(fun() -> for_down(Min,Max)end).
 
