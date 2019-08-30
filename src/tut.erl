@@ -13,7 +13,7 @@ main() ->
 	spawner(1,50).
 
 for_down(Max, Min) -> 
-	case Max of 0 -> 
+	case Max of Min -> 
 		ok;
     _ ->
 	io:fwrite("Num : ~p\n", [Max]),
@@ -22,10 +22,11 @@ for_down(Max, Min) ->
 	
 for_up(Min, Max) ->
 	case Min of 
-		Max -> io:fwrite("Num : ~p\n", [Min]);
+		Max -> 
+			io:fwrite("Num : ~p\n", [Min]);
   	_ -> 
-	io:fwrite("Num : ~p\n", [Min]),
-	for_up(Min+1, Max) end.
+		io:fwrite("Num : ~p\n", [Min]),
+		for_up(Min+1, Max) end.
 
 spawner(Min, Max) ->
 	spawn(fun() -> for_up(Min,Max)end),
