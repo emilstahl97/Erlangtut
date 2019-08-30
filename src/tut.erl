@@ -10,12 +10,15 @@
 
 main() -> 
 
-	spawner(),
-	spawner(),
-	spawner().
+	spawner(50,1),
+	spawner(100,51).
 	
-get_id(M) ->
-	io:fwrite("ID : ~p\n", [M]).
+for(0,_) -> 
+	ok;
 
-spawner() ->
-	spawn(fun() -> get_id([self()]) end).
+for(Max, Min) when Max > 0 -> 
+	io:fwrite("Num : ~p\n", [Max]),
+	for(Max-1, Min).
+
+spawner(Max, Min) -> 
+	spawn(fun() -> for(Max, Min) end).
