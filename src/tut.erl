@@ -1,16 +1,10 @@
-%% @author emilstahl
-%% @doc @todo Add description to tut.
-
+% @author emilstahl
+% This is a tutorial in Erlang, to see all exercises, 
+% check out https://github.com/emilstahl97/Erlangtut.git
 
 -module(tut).
 
--import(string, [len/1, concat/2, chr/2, substr/3, str/2, to_lower/1, to_upper/1]).
-
--export([main/0]).
-
-main() -> 
-
-	spawner(1,50).
+-export([spawner/2]).
 
 for_down(Max, Min) -> 
 	case Max of Min -> 
