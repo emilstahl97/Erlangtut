@@ -6,6 +6,10 @@
 
 -export([spawner/2]).
 
+spawner(Min, Max) ->
+	spawn(fun() -> for_up(Min,Max)end),
+	spawn(fun() -> for_down(Max,Min)end).
+
 for_down(Max, Min) -> 
 	case Max of Min -> 
 		ok;
@@ -13,16 +17,10 @@ for_down(Max, Min) ->
 	io:fwrite("Num : ~p\n", [Max]),
 	for_down(Max-1, Min) end.
 	
-	
 for_up(Min, Max) ->
 	case Min of 
 		Max -> 
-			io:fwrite("Num : ~p\n", [Min]);
-  	_ -> 
+		io:fwrite("Num : ~p\n", [Min]);
+  		_ -> 
 		io:fwrite("Num : ~p\n", [Min]),
 		for_up(Min+1, Max) end.
-
-spawner(Min, Max) ->
-	spawn(fun() -> for_up(Min,Max)end),
-	spawn(fun() -> for_down(Max,Min)end).
-
